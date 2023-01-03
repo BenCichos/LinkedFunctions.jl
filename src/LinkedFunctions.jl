@@ -14,7 +14,7 @@ import MacroTools: isdef, splitdef, combinedef
 
 include("LinkedFunction.jl")
 include("link.jl")
-include("convertdef.jl")
+include("linkconvert.jl")
 include("broadcast.jl")
 include("OtherFunction.jl")
 
@@ -24,7 +24,7 @@ include("OtherFunction.jl")
 
 export AbstractLinkedFunction, LinkedFunction
 export fn1, fn2, is_fn1, toggle, fn1_args, fn2_args, set_fn1_args!, set_fn2_args!, set_args!
-export @link, @convertdef
+export @link, @linkconvert
 export AbstractOtherFunction, OtherFunction
 export other, linked_function
 
