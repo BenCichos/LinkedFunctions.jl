@@ -49,15 +49,15 @@ end
 ```
 Every convert method has to return a tuple of type ```Type{Tuple{Tuple, NamedTuple}}```. The ```@linkconvert``` macro enforces that the method definition overloads the ```Base.convert``` function. The macro also works on anonymous methods, however, it is advised to only used anonymous methods when having more than two method arguments or keyword arguments. The general guidance how to use the macro is given below.
 ```julia
-    @linkconvert $(from) $(to) function $(name || nothing)(args...; kwargs...)
-        return Tuple(Tuple(), NamedTuple())
-    end
+@linkconvert $(from) $(to) function $(name || nothing)(args...; kwargs...)
+    return Tuple(Tuple(), NamedTuple())
+end
 ```
 The macro modifies the method expression to the following method definition.
 ```julia
-    function Base.convert(::typeof($from), ::typeof($to), args...; kwargs...)::Tuple{Tuple, NamedTuple}
-        return Tuple(Tuple(), NamedTuple())
-    end
+function Base.convert(::typeof($from), ::typeof($to), args...; kwargs...)::Tuple{Tuple, NamedTuple}
+    return Tuple(Tuple(), NamedTuple())
+end
 ```
 Once we have defined the convert methods we can call the LinkedFunction like we would call the method of the function one that we just defined. By default the LinkedFunction selects the first function that was given when linking the functions. The LinkedFunction will then use the defined convert methods to compute the equivalent arguments for the linked function. LinkedFunction then stores the arguments to both functions.
 ```julia
