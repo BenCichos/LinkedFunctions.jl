@@ -8,8 +8,9 @@ MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 StructArrays = "09ab397b-f2b6-538f-b94a-2f83cf4a842a"
 
 [compat]
-StructArrays = "0.6"
-julia = "1"
+MacroTools = "0.5.10"
+StructArrays = "0.6.14"
+julia = "1.8"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
