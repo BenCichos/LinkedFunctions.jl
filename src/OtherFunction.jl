@@ -11,6 +11,7 @@ struct OtherFunction <: AbstractOtherFunction
 end
 
 other(l::LinkedFunction) = OtherFunction(l)
+other(o::OtherFunction) = o.linked_function
 linked_function(o::OtherFunction) = o.linked_function
 (o::OtherFunction)() = linked_function(o)(; other=true)
 (o::OtherFunction)(args...; kwargs...) = linked_function(o)(args...; other=true, kwargs...)
